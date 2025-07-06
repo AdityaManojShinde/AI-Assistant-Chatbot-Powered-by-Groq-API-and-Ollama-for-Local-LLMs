@@ -1,0 +1,17 @@
+langchain_openai
+langchain_core
+python-dotenv
+streamlit
+langchain_community
+langchain-ollama
+langserve
+fastapi
+uvicorn
+
+langchain-text-splitters
+langchain-chroma
+bs4
+groq
+langchain-groq
+beautifulsoup4
+sse_starlette
