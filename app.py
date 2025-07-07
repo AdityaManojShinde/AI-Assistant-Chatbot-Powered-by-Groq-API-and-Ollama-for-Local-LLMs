@@ -149,12 +149,14 @@ class LangchainAPIApp:
             return {
                 "cloud_models": [
                     "qwen/qwen3-32b",
+                    "qwen-qwq-32b",
                     "llama3-70b-8192",
+                    "llama-3.1-8b-instant",
                     "compound-beta",
                     "gemma2-9b-it",
                     "mistral-saba-24b",
-                    "qwen/qwen3-32b",
-                    "whisper-large-v3-turbo"
+                   
+                 
                 ],
                 "local_models": [
                     "qwen3:0.6b",

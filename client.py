@@ -5,7 +5,7 @@ import re
 
 # Page configuration
 st.set_page_config(
-    page_title="🤖 AI Assistant Chatbot",
+    page_title="AI Assistant Chatbot",
     layout="centered"
 )
 
@@ -264,13 +264,14 @@ def get_available_models() -> dict:
         else:
             return {
                 "cloud_models": [
-                    "qwen/qwen3-32b",
+                   "qwen/qwen3-32b",
+                    "qwen-qwq-32b",
                     "llama3-70b-8192",
+                    "llama-3.1-8b-instant",
                     "compound-beta",
                     "gemma2-9b-it",
                     "mistral-saba-24b",
-                    "qwen/qwen3-32b",
-                    "whisper-large-v3-turbo"
+                   
                 ],
                 "local_models": [
                     "qwen3:0.6b",
@@ -281,24 +282,18 @@ def get_available_models() -> dict:
         # Fallback to hardcoded models if server is not available
         return {
             "cloud_models": [
-                "qwen/qwen3-32b",
-                "llama3-70b-8192",
-                "llama3-8b-8192",
-                "mixtral-8x7b-32768",
-                "gemma-7b-it",
-                "whisper-large-v3"
+                    "qwen/qwen3-32b",
+                    "qwen-qwq-32b",
+                    "llama3-70b-8192",
+                    "llama-3.1-8b-instant",
+                    "compound-beta",
+                    "gemma2-9b-it",
+                    "mistral-saba-24b",
+                
             ],
             "local_models": [
                 "qwen3:0.6b",
-                "llama3.1:8b",
-                "llama3.1:70b",
-                "llama3.2:3b",
-                "phi3:mini",
-                "mistral:7b",
-                "codellama:7b",
-                "gemma2:9b",
-                "qwen2:7b",
-                "deepseek-coder:6.7b"
+                "deepseek-r1:1.5b"
             ]
         }
 
@@ -478,14 +473,7 @@ def main():
         5. Start chatting!
         """)
         
-        st.markdown("**Tips:**")
-        st.markdown("""
-        - Use **Cloud AI** for faster responses
-        - Use **Local AI** for privacy
-        - Try different models for various tasks
-        - Use text area for longer prompts
-        """)
-    
+        
     # Main container
     st.markdown('<div class="chat-container">', unsafe_allow_html=True)
     
@@ -495,8 +483,6 @@ def main():
     else:
         st.markdown(f'<div class="mode-indicator local-mode">💻 Local AI Mode - {selected_model}</div>', unsafe_allow_html=True)
     
-    # Chat interface
-    st.markdown("### 💬 Chat with AI")
     
     # Input based on selected method
     if input_method == "Text Input":
@@ -522,6 +508,7 @@ def main():
     with col2:
         if st.button("🗑️ Clear"):
             st.rerun()
+         
     
     # Process the request
     if generate_button:
@@ -569,10 +556,7 @@ def main():
                         st.session_state.copied_text = response
                         st.success("Response copied to session!")
                 
-                with col3:
-                    # New conversation
-                    if st.button("🔄 New Chat"):
-                        st.rerun()
+                
                 
                 # Show response statistics
                 with st.expander("📊 Response Statistics"):
@@ -588,7 +572,7 @@ def main():
     
     # Footer
     st.markdown(
-        '<div class="footer">AI Assistant Chatbot • Configure settings in the sidebar</div>',
+        '<div class="footer">AI Assistant Chatbot • Created by AdityaManojShinde</div>',
         unsafe_allow_html=True
     )
 
